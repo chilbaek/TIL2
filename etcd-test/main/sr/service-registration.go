@@ -10,7 +10,7 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
-// ServiceRegister create and register service
+// Create and register service
 type ServiceRegister struct {
 	cli           *clientv3.Client
 	leaseID       clientv3.LeaseID
@@ -19,7 +19,7 @@ type ServiceRegister struct {
 	val           string
 }
 
-// NewServiceRegister create new service
+// Create new service
 func NewServiceRegister(endpoints []string, key, val string, lease int64) (*ServiceRegister, error) {
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints:   endpoints,
@@ -68,7 +68,7 @@ func (s *ServiceRegister) putKeyWithLease(lease int64) error {
 	return nil
 }
 
-// ListenLeaseRespChan listen and watch
+// Listen and watch
 func (s *ServiceRegister) ListenLeaseRespChan() {
 	for leaseKeepResp := range s.keepAliveChan {
 		log.Println("Success", leaseKeepResp)

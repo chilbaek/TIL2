@@ -10,6 +10,7 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
+// go run watch.go -key=foo
 func main() {
 	key := flag.String("key", "", "Key to watch")
 	flag.Parse()
