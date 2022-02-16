@@ -71,6 +71,10 @@
 
 ## Go client v3 examples
 
+핵심코드 일부만 발췌하였음. Full 코드는 /main 디렉토리에..
+
+### 0. etcd go client 설치
+
 ```bash
 go get go.etcd.io/etcd/client/v3
 ```
@@ -133,6 +137,8 @@ for wresp := range rch {
 [스크린샷]
 
 키의 값이 변경될 때 마다 콘솔에 출력된다.
+
+
 
 ### 3. Lease API
 
