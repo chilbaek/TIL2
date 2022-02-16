@@ -10,14 +10,14 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
-// ServiceDiscovery service discovery
+// Service discovery
 type ServiceDiscovery struct {
 	cli        *clientv3.Client  // etcd client
 	serverList map[string]string // server list
 	lock       sync.Mutex
 }
 
-// NewServiceDiscovery new service discovery client
+// New service discovery client
 func NewServiceDiscovery(endpoints []string) *ServiceDiscovery {
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints:   endpoints,
@@ -63,7 +63,7 @@ func (s *ServiceDiscovery) watcher(prefix string) {
 	}
 }
 
-// SetServiceList add server to list
+// Add server to list
 func (s *ServiceDiscovery) SetServiceList(key, val string) {
 	s.lock.Lock()
 	defer s.lock.Unlock()
