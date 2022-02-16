@@ -1,5 +1,9 @@
 # ETCD client examples
 
+## [About-ETCD](https://github.com/dunkshot/TIL/blob/master/etcd-test/about-etcd.md)
+
+
+
 ## ETCD 클러스터 구성
 
 1. etcd 설치 ([공식문서 가이드](https://etcd.io/docs/v3.5/install/))
