@@ -1,0 +1,1 @@
+https://blog.burt.pe.kr/posts/local-package-with-go-module/
