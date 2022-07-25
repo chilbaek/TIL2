@@ -6,6 +6,6 @@
 { "type": "Feature", "properties": { "NODE_ID": "3680002100", "NODE_TYPE": "101", "NODE_NAME": "수성2교차로", "TURN_P": "0" }, "geometry": { "type": "Point", "coordinates": [ 128.183221794765643, 35.868756650007519 ] } },
 { "type": "Feature", "properties": { "NODE_ID": "1865949201", "NODE_TYPE": "101", "NODE_NAME": "둔곡국가산업단지", "TURN_P": "0" }, "geometry": { "type": "Point", "coordinates": [ 127.358916938416883, 36.452237812893664 ] } },
 { "type": "Feature", "properties": { "NODE_ID": "3280218301", "NODE_TYPE": "101", "NODE_NAME": "-", "TURN_P": "0" }, "geometry": { "type": "Point", "coordinates": [ 127.679720843247168, 34.935957576132232 ] } },
-{ "type": "Feature", "properties": { "NODE_ID": "3280218201", "NODE_TYPE": "101", "NODE_NAME": "-", "TURN_P": "1" }, "geometry": { "type": "Point", "coordinates": [ 127.676191617513908, 34.936026995319331 ] } },
+{ "type": "Feature", "properties": { "NODE_ID": "3280218201", "NODE_TYPE": "101", "NODE_NAME": "-", "TURN_P": "1" }, "geometry": { "type": "Point", "coordinates": [ 127.676191617513908, 34.936026995319331 ] } }
 ]
 }
