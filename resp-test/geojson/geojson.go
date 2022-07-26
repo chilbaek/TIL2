@@ -44,7 +44,7 @@ func main() {
 
 	json.Unmarshal(byteValue, &geojsonFormat)
 
-	fmt.Println()
+	fmt.Println("start")
 
 	for _, f := range geojsonFormat.Features {
 		b, _ := json.Marshal(f)
@@ -53,13 +53,17 @@ func main() {
 		genRedisProto("set", key, string(value))
 	}
 
-	fmt.Println(output)
+	fmt.Println("end")
+	fmt.Println("write file")
+
 	ioutil.WriteFile("mmap-test.db", []byte(output), 0644)
 }
 
 func genRedisProto(cmd string, key string, value string) {
 	str := "" +
-		"*" + strconv.Itoa(len(cmd)) + "\r\n" +
+		"*3\r\n" +
+		"$" + strconv.Itoa(len(cmd)) + "\r\n" +
+		cmd + "\r\n" +
 		"$" + strconv.Itoa(len([]byte(key))) + "\r\n" +
 		key + "\r\n" +
 		"$" + strconv.Itoa(len([]byte(value))) + "\r\n" + // +4 ??
