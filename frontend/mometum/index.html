@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
     <script src="app.js"></script>
@@ -15,15 +16,38 @@
 
 <script>
     const root = document.getElementById("root")
-    const span = React.createElement("span", null, "hi");
+
+    // // 1. Jsx
+    // const h3Jsx = (
+    //     <h3 id="h3 title" onMouseEnter={() => console.log("mouse enter")}>
+    //         Hello Im title
+    //     </h3>
+    // );
+
+    // 2. Jsx to Browser-compatible JavaScript
+    const h3Jsx = /*#__PURE__*/React.createElement("h3", {
+        id: "h3 title",
+        onMouseEnter: () => console.log("mouse enter")
+    }, "Hello Im title");
+
+    // 3. Origin Javascript
     const h3 = React.createElement("h3", {
         id: "h3 title",
         onMouseEnter: () => console.log("mouse enter")
     }, "Hello Im a span");
+
+    // const ButtonJsx = (
+    //     <button style={{
+    //         backgroundColor: "tomato",
+    //     }} onClick={() => console.log("Im clicked")}>Click me Jsx</button>
+    // )
+
     const btn = React.createElement("button", {
         onClick: () => console.log("Im clicked"),
     },"Click me");
-    const container = React.createElement("div", null, [h3, btn])
+
+    const container = React.createElement("div", null, [h3Jsx, btn])
+
     ReactDOM.render(container, root)
 </script>
 
