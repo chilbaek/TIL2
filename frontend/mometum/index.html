@@ -14,41 +14,38 @@
     <div id="root"></div>
 </body>
 
-<script>
+<script type="text/babel">
     const root = document.getElementById("root")
+    // Jsx to function
+    function Title() {
+        return (
+        <h3 id="h3 title" onMouseEnter={() => console.log("mouse enter")}>
+            Hello Im title
+        </h3>
+        );
+    };
 
-    // // 1. Jsx
-    // const h3Jsx = (
-    //     <h3 id="h3 title" onMouseEnter={() => console.log("mouse enter")}>
-    //         Hello Im title
-    //     </h3>
-    // );
+    const Button = () => (
+        <button
+            style={{
+                backgroundColror: "green",
+            }}
+            onClick={() => console.log("Im clicked")}
+        >
+            Click me
+        </button>
+    );
 
-    // 2. Jsx to Browser-compatible JavaScript
-    const h3Jsx = /*#__PURE__*/React.createElement("h3", {
-        id: "h3 title",
-        onMouseEnter: () => console.log("mouse enter")
-    }, "Hello Im title");
-
-    // 3. Origin Javascript
-    const h3 = React.createElement("h3", {
-        id: "h3 title",
-        onMouseEnter: () => console.log("mouse enter")
-    }, "Hello Im a span");
-
-    // const ButtonJsx = (
-    //     <button style={{
-    //         backgroundColor: "tomato",
-    //     }} onClick={() => console.log("Im clicked")}>Click me Jsx</button>
-    // )
-
-    const btn = React.createElement("button", {
-        onClick: () => console.log("Im clicked"),
-    },"Click me");
-
-    const container = React.createElement("div", null, [h3Jsx, btn])
+    // const container = React.createElement("div", null, [h3Jsx, btn])
+    const container = (
+        <div>
+            <Title />
+            <Button />
+        </div>
+    );
 
     ReactDOM.render(container, root)
+
 </script>
 
 </html>
