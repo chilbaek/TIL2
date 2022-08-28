@@ -16,36 +16,23 @@
 
 <script type="text/babel">
     const root = document.getElementById("root")
-    // Jsx to function
-    function Title() {
+    let counter = 0;
+    function countUp() {
+        counter = counter + 1;
+        render()
+    }
+    function render() {
+        ReactDOM.render(<Container />, root)
+    }
+    function Container() {
         return (
-        <h3 id="h3 title" onMouseEnter={() => console.log("mouse enter")}>
-            Hello Im title
-        </h3>
-        );
+            <div>
+                <h3>Total clicks: {counter}</h3>
+                <button onClick={countUp}>Click me</button>
+            </div>
+        )
     };
-
-    const Button = () => (
-        <button
-            style={{
-                backgroundColror: "green",
-            }}
-            onClick={() => console.log("Im clicked")}
-        >
-            Click me
-        </button>
-    );
-
-    // const container = React.createElement("div", null, [h3Jsx, btn])
-    const container = (
-        <div>
-            <Title />
-            <Button />
-        </div>
-    );
-
-    ReactDOM.render(container, root)
-
+    render()
 </script>
 
 </html>
