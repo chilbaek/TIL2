@@ -15,21 +15,30 @@
 </body>
 
 <script type="text/babel">
-  function Btn( {banana, big} ) {
-    return <button style={{
-      backgroundColor: "green",
-      color: "white",
-      padding: "10px 20px",
-      border: 0,
-      borderRadius: 10,
-      fontSize: big ? 20 : 12,
-    }}>{banana}</button>
+  function Btn({ text, onClick }) {
+    console.log(text, "was rendered")
+    return (
+        <button
+          onClick={onClick}
+          style={{
+            backgroundColor: "green",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+          }}>
+          {text}
+        </button>
+    )
   }
+  const MemoriezedBtn = React.memo(Btn) // 변경된 버튼에 한해 re-render
   function App() {
+    const [value, setValue] = React.useState("Save Changes");
+    const changeValue = () => setValue("Revert Changes");
     return (
       <div>
-        <Btn banana="Save Changes" big={true} />
-        <Btn banana="Continue" big={false} />
+        <MemoriezedBtn text={value} onClick={changeValue} />
+        <MemoriezedBtn text="Continue" />
       </div>
     );
   }
