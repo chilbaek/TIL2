@@ -16,7 +16,7 @@
 </body>
 
 <script type="text/babel">
-  function Btn({ text, fontSize = 12 }) {
+  function Btn( props ) {
     console.log(text, "was rendered")
     return (
         <button
@@ -26,9 +26,9 @@
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize: fontSize,
+            fontSize: props.fontSize,
           }}>
-          {text}
+          {props.text}
         </button>
     )
   }
@@ -40,7 +40,7 @@
     return (
       <div>
         <Btn text="Save Changes" fontSize={18} />
-        <Btn text={"Continue"} />
+        <Btn text="Continue" fontSize=/>
       </div>
     );
   }
