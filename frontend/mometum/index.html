@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 </head>
 <body>
     <script src="app.js"></script>
@@ -15,30 +16,31 @@
 </body>
 
 <script type="text/babel">
-  function Btn({ text, onClick }) {
+  function Btn({ text, fontSize = 12 }) {
     console.log(text, "was rendered")
     return (
         <button
-          onClick={onClick}
           style={{
             backgroundColor: "green",
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
+            fontSize: fontSize,
           }}>
           {text}
         </button>
     )
   }
-  const MemoriezedBtn = React.memo(Btn) // 변경된 버튼에 한해 re-render
+  Btn.propTypes = {
+    text: PropTypes.string.isRequired,
+    fontSize: PropTypes.number
+  }
   function App() {
-    const [value, setValue] = React.useState("Save Changes");
-    const changeValue = () => setValue("Revert Changes");
     return (
       <div>
-        <MemoriezedBtn text={value} onClick={changeValue} />
-        <MemoriezedBtn text="Continue" />
+        <Btn text="Save Changes" fontSize={18} />
+        <Btn text={"Continue"} />
       </div>
     );
   }
