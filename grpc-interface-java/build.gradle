@@ -1,8 +1,8 @@
 buildscript {
     ext {
-        protobufVersion = '3.14.0'
-        protobufPluginVersion = '0.8.14'
-        grpcVersion = '1.35.0'
+        protobufVersion = '3.21.4'
+        protobufPluginVersion = '0.8.19'
+        grpcVersion = '1.49.0'
     }
 }
 
