@@ -7,15 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
 @RequiredArgsConstructor
 public class GrpcClientController {
 
     private final GrpcClientService grpcClientService;
 
+//    @RequestMapping("/test")
+//    @GetMapping
+//    public String printMessage() {
+//        return grpcClientService.sendMessage("test");
+//    }
+
+    @RequestMapping("/moct")
     @GetMapping
-    public String printMessage() {
-        return grpcClientService.sendMessage("test");
+    public String printMoctRsp() {
+        return grpcClientService.getMoctBounds();
     }
 
 }
